@@ -12,5 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('test');
+});
+
+Auth::routes();
+
+Route::get('/home', function () {
+    return redirect()->route('data');
+})->name('home');
+
+Route::get('/logout', 'AdminController@logout')->name('logout');
+Route::get('/uji', 'NaiveCoreController@index')->name('test');
+Route::post('/core', 'NaiveCoreController@naiveBayes')->name('naive');
+
+Route::prefix('/admin')->middleware('auth')->group(function(){
+    Route::get('/data', 'AdminController@index')->name('data');
+    Route::post('/data/add', 'AdminController@postData')->name('postData');
+    
 });
