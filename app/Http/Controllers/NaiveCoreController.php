@@ -179,7 +179,7 @@ class NaiveCoreController extends Controller
     public function mean($data, $key)
     {   //karena menggunakan laplace smoothing maka jumlah di tambah 1 untuk menghindari probabilitas 0
 
-        return (array_sum(array_column($data, $key)) + 1) / count($data);
+        return (array_sum(array_column($data, $key)) + 1) / (count($data) + 6);
     }
 
     //menghitung standart deviasi
