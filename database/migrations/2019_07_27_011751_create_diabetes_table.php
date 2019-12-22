@@ -15,12 +15,12 @@ class CreateDiabetesTable extends Migration
     {
         Schema::create('diabetes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('age');
-            $table->decimal('bsfast');
-            $table->decimal('bspp');
-            $table->decimal('plasma_r');
-            $table->decimal('plasma_f');
-            $table->integer('hba1c');
+            $table->string('age');
+            $table->string('bsfast');
+            $table->string('bspp');
+            $table->string('plasma_r');
+            $table->string('plasma_f');
+            $table->string('hba1c');
             $table->string('type');
             $table->timestamps();
         });
